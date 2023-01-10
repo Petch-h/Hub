@@ -1,0 +1,25 @@
+local Fullmoon = Instance.new("ScreenGui")
+local Fullmoon_2 = Instance.new("ImageLabel")
+
+Fullmoon.Name = "Fullmoon"
+Fullmoon.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+Fullmoon.ResetOnSpawn = false
+
+Fullmoon_2.Name = "Fullmoon"
+Fullmoon_2.Parent = Fullmoon
+Fullmoon_2.Active = true
+Fullmoon_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Fullmoon_2.BackgroundTransparency = 1.000
+Fullmoon_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Fullmoon_2.Rotation = -180.000
+Fullmoon_2.Size = UDim2.new(0, 100, 0, 100)
+
+local function QVBFY_fake_script() -- Fullmoon_2.LocalScript 
+	local script = Instance.new('LocalScript', Fullmoon_2)
+
+	local imagelabel = script.Parent
+	local fullmoon = game:GetService("Lighting").Sky.MoonTextureId
+	
+	imagelabel.Image = fullmoon
+end
+coroutine.wrap(QVBFY_fake_script)()
