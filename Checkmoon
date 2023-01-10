@@ -23,3 +23,11 @@ local function QVBFY_fake_script() -- Fullmoon_2.LocalScript
 	imagelabel.Image = fullmoon
 end
 coroutine.wrap(QVBFY_fake_script)()
+
+local StarterGui = game:GetService("StarterGui")
+
+StarterGui:SetCore("SendNotification", {
+	Title = "CHECK FULLMOON !",
+	Text = "By Petch.h",
+	Duration = 3,
+})
