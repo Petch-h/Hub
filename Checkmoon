@@ -1,5 +1,12 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
 local Fullmoon = Instance.new("ScreenGui")
 local Fullmoon_2 = Instance.new("ImageLabel")
+
+--Properties:
 
 Fullmoon.Name = "Fullmoon"
 Fullmoon.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -14,20 +21,48 @@ Fullmoon_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Fullmoon_2.Rotation = -180.000
 Fullmoon_2.Size = UDim2.new(0, 100, 0, 100)
 
-local function QVBFY_fake_script() -- Fullmoon_2.LocalScript 
+-- Scripts:
+
+local function AQWM_fake_script() -- Fullmoon_2.LocalScript 
 	local script = Instance.new('LocalScript', Fullmoon_2)
 
-	local imagelabel = script.Parent
-	local fullmoon = game:GetService("Lighting").Sky.MoonTextureId
+	repeat wait() until game:IsLoaded()
 	
+	local imagelabel = script.Parent
+	local player = game.Players.LocalPlayer
+	local mouse = player:GetMouse()
+	local fullmoon = game:GetService("Lighting").Sky.MoonTextureId
+	local function fullmoonagain()
+		imagelabel.Image = fullmoon
+		print("check full moon by pointed!")
+	end
+	
+	--[[
 	imagelabel.Image = fullmoon
+	print("Check fullmoon!")
+	imagelabel.MouseEnter:Connect(fullmoonagain)
+	
+	repeat wait()
+		imagelabel.Image = fullmoon
+		print("Check fullmoon!")
+		imagelabel.MouseEnter:Connect(fullmoonagain)
+	until game:Destroy()
+	]]
+	
+	imagelabel.MouseEnter:Connect(fullmoonagain)
+	
+	while true do
+		imagelabel.Image = fullmoon
+		print("auto check full moon! (30s)")
+		wait(30)
+	end
 end
-coroutine.wrap(QVBFY_fake_script)()
+coroutine.wrap(AQWM_fake_script)()
 
 local StarterGui = game:GetService("StarterGui")
 
 StarterGui:SetCore("SendNotification", {
-	Title = "CHECK FULLMOON !",
-	Text = "By Petch.h",
+	Title = "Check Full Moon By Petch.h",
+	Text = "You can point at the image for a quick reset, Normally the image resets every 30s.",
 	Duration = 3,
 })
